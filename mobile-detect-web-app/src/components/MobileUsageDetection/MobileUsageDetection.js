@@ -12,6 +12,12 @@ export default function MobileUsageDetection() {
   const handleFileUpload = (e) => {
     const files = Array.from(e.target.files);
     setUploadedFiles([...uploadedFiles, ...files]);
+    const newResults = files.map((file, index) => ({
+      id: uploadedFiles.length + index + 1,
+      name: file.name,
+      time: "00:00:00", // Placeholder time
+    }));
+    setResults([...results, ...newResults]);
   };
 
   const handleProcess = () => {
